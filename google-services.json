@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "732965393953",
+    "project_id": "theremworld-358110",
+    "storage_bucket": "theremworld-358110.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732965393953:android:f040dde29b91af1783f560",
+        "android_client_info": {
+          "package_name": "com.theremworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732965393953-bc9fctqc7v5hhkgofl3ollbt3hvjt3la.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhak48EZS1UYFPoSZgruq9-0Fn7-uKDnw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732965393953-bc9fctqc7v5hhkgofl3ollbt3hvjt3la.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "732965393953-5bdbug7cppfbg2fgarafsvmktdqvchsd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.theremworld.theremworld"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

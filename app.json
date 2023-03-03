@@ -1,0 +1,62 @@
+{
+  "expo": {
+    "name": "theremworld",
+    "slug": "theremworld",
+    "scheme":"com.theremworld.theremworld",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/de525362-839a-4681-9c41-79560a9477b3"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.theremworld.theremworld"
+    },
+    "android": {
+      "useNextNotificationsApi": true,      
+      "package": "com.theremworld.theremworld",
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ],
+          "data": {
+            "scheme": "com.googleusercontent.apps.732965393953-s8vt8jk95at5dvqna77k9rn234on6ao3",
+            "path": "/oauth2redirect"
+          }
+        }
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "packagerOpts": {
+      "config": "metro.config.js"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "de525362-839a-4681-9c41-79560a9477b3"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
+  }
+}
