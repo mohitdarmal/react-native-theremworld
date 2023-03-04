@@ -4,7 +4,6 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import HeaderComp from "../../Components/HeaderComp";
-import ImagePath from "../../Constant/ImagePath";
 import CommonStyle from "../ScreenCommonCss";
 import NavigationString from "../../Constant/NavigationStrings"
 import Style from "./Style";

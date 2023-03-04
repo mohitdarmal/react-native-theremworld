@@ -3,7 +3,6 @@ import {Text, Modal, View, ImageBackground, ScrollView, TextInput, Switch, Touch
 import axios from "axios";
 import NavigationStrings from "../../Constant/NavigationStrings";
 import HeaderComp from "../../Components/HeaderComp";
-import ImagePath from "../../Constant/ImagePath";
 import Style from "./Style";
 import CommonStyle from "../ScreenCommonCss";
 import { useSelector } from "react-redux";

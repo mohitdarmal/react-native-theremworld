@@ -4,7 +4,7 @@ import HeaderComp from "../../Components/HeaderComp";
 import CommonStyle from "../ScreenCommonCss";
 import NavigationStrings from "../../Constant/NavigationStrings";
 import AntDesign from "react-native-vector-icons/AntDesign";
-import axios from "axios";
+import axios from "axios"; 
 import { useDispatch, useSelector } from "react-redux";
 // import RenderHtml from 'react-native-render-html';
 import { Rating, RatingInput } from 'react-native-stock-star-rating'
