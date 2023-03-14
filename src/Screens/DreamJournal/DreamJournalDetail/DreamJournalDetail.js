@@ -96,12 +96,13 @@ const DreamJournalDetail = (props) => {
 
            
                <HeaderComp backBtn />
+               <ScrollView >
                <View >
                 {/* SearchBar */}
                 <View style={Style.paddingHr20}>          
                 </View>
 
-                        <ScrollView >
+                       
                             <View style={Style.detailBox}>
                               {/*   <Text style={Style.title}>{DreamJournalDetail.dreamTitle} </Text>
                                 <Text style={Style.dreamTxt}>Dream Text </Text>
@@ -115,7 +116,8 @@ const DreamJournalDetail = (props) => {
                                 <Text style={[Style.label, themeTextStyle]}> Dream Title </Text>
                                    <View style={Style.inputBox}>
                                     <TextInput
-                                    style={Style.inputFieldTxt}
+                                     style={Style.textArea}
+                                     multiline={true}
                                     onChangeText={(val) => addDream({dreamTitle: val}) }
                                     value={addDreamData.dreamTitle}                                                           
                                 />
@@ -162,7 +164,7 @@ const DreamJournalDetail = (props) => {
                                         {/* Toggle */}
 
                                         {/* Save */}
-                                            <View style={Style.saveBtnContainer}>
+                                            <View style={[Style.saveBtnContainer]}>
                                             <TouchableOpacity onPress={() =>  props.navigation.navigate(NavigationStrings.DREAM_JOURNAL)} style={{flex:1,}}>
                                               <Text style={Style.cancelBtn}> Cancel </Text>
                                             </TouchableOpacity>
@@ -173,9 +175,9 @@ const DreamJournalDetail = (props) => {
                                         {/* Save */}
 
                             </View>
-                        </ScrollView>
+                       
                </View>
-
+               </ScrollView>
 
          
         </View>

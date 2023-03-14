@@ -71,7 +71,8 @@ const Style = StyleSheet.create({
         shadowColor: '#00000047',
         flex: 1,
         paddingHorizontal:20,
-        paddingBottom:50,
+        paddingBottom:20,
+        paddingTop:20,
         marginBottom:20,
     },
       txtAreaTxt:{

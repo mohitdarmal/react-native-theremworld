@@ -15,6 +15,18 @@ const Style = StyleSheet.create({
         color:'#fff'
 
     },
+    contactTxt:{
+        color:'#fff',
+        fontSize:20,
+        fontStyle:'italic',
+        textAlign:'center',
+        paddingHorizontal:20,
+        marginBottom:20,
+        lineHeight:30,
+        marginTop:25,
+        fontWeight:'500'
+
+    },
     inputFieldTxt: {
         backgroundColor: "#fff",
         paddingHorizontal: 20,
@@ -71,6 +83,7 @@ const Style = StyleSheet.create({
         height:130,
     },
     txtAreaTxt:{
+        paddingTop:20,
         fontSize:18,
         color:'#01203fa1',
     },

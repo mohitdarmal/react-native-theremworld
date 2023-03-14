@@ -176,6 +176,8 @@ const isValidate = () => {
 
   <HeaderComp toggleBtn title="Contact Us"/>
 
+  <View style={CommonStyle.paddingHorizontal20}><Text style={[Style.contactTxt, themeTextStyle]}>Thank you for contacting us. Please fill in all the details below and we will respond at the earliest possible. Currently our response times are more than one week. All fields are required </Text></View>
+
               <ScrollView style={CommonStyle.paddingHorizontal20}>
                    {/* Full name */}
                    <View style={{flexDirection:'row'}}>
@@ -228,9 +230,9 @@ const isValidate = () => {
                         <TextInput
                         style={Style.txtAreaTxt}
                        multiline={true}
-                       numberOfLines={4}
+                     //   numberOfLines={4}
                        onChangeText={(e) => addContactDetail('contactText', e) }
-                       placeholder="Give a title to this dream"
+                       placeholder="Message"
                        placeholderTextColor="#c1c1c1" />
                 </View>
                 {/* Message dream */}

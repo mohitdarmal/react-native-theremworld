@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {Text, View, FlatList, ActivityIndicator, useColorScheme, Modal, useWindowDimensions, ScrollView} from "react-native";
 import HeaderComp from "../../Components/HeaderComp";
+import HTMLView from 'react-native-htmlview';
 import CommonStyle from "../ScreenCommonCss";
 import NavigationStrings from "../../Constant/NavigationStrings";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import axios from "axios"; 
 import { useDispatch, useSelector } from "react-redux";
-// import RenderHtml from 'react-native-render-html';
 import { Rating, RatingInput } from 'react-native-stock-star-rating'
 import Style from "./Style";
 
@@ -105,8 +105,11 @@ const themeContainerStyle =
                                            
                             <View  style={[Style.symbolContainer, {width:'85%', }]}>                                    
                             <Text style={[Style.popupTitle, themeTextStyle]}>{singleBlogData.title}</Text>
-                                    <ScrollView style={{paddingBottom:30, marginBottom:50,}}>                                      
-                                       {/* <Text style={[Style.popupDesc, themeTextStyle]}>{singleBlogData.description}</Text> */}
+                                    <ScrollView style={{paddingBottom:30, marginBottom:50,}}>     
+                                    <HTMLView
+                                        value={singleBlogData.description}                  
+                                      />               
+                                       {/* <Text style={[Style.popupDesc, themeTextStyle]}>{singleBlogData.description} </Text> */}
                                      {/*   <RenderHtml                                       
                                             contentWidth={width}
                                             source={{html: singleBlogData.description}}

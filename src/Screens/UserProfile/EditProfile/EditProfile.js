@@ -136,7 +136,7 @@ const EditProfile = (props) => {
                  {/*Password */}
                  <View style={{flexDirection:'row'}}>
                  <View style={Style.inputBox} >
-                     <Text style={[Style.label, themeTextStyle, {marginLeft:10}]}>Password</Text>
+                     <Text style={[Style.label, themeTextStyle, {marginLeft:10}]}>New Password</Text>
                         <TextInput
                        style={[Style.inputFieldTxt, {marginRight:10}]}
                        onChangeText={(val) => addProfile({userPwd: val}) }

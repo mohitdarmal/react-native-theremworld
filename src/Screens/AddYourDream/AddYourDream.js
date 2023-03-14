@@ -243,26 +243,30 @@ console.log(aiAnalyze, "aiAnala")
 
 
             {/* About your dream */}
+            <Text style={[Style.descTxt, themeTextStyle, {marginBottom:10}]}>Describe the dream: </Text>
               <View style={Style.textArea}>
+             
                     <TextInput
                        style={Style.txtAreaTxt}
                        multiline={true}
                        numberOfLines={4}
                        onChangeText={(val) => addDream({dreamText: val}) }
-                       placeholder="Describe the Dream"
+                       placeholder="You don't need to remember the entire dream to log it for journaling. Capture whatever fragments or sequence you experienced in the dream as accurately as possible"
                        placeholderTextColor="#01203F66" />
                 </View>
-                <Text style={[Style.descTxt, themeTextStyle]}>Please make dream details as descriptive as possible (20 or more words) </Text>
+              
                 {/* About your dream */}
 
-                 {/* Dream situation */}            
+                 {/* Dream situation */}     
+                 <Text style={[Style.descTxt, themeTextStyle,  {marginBottom:10}]}>Describe any relevant context of the dream: </Text>       
               <View style={Style.textArea}>
+             
                     <TextInput
                        style={Style.txtAreaTxt}
                        multiline={true}
                        numberOfLines={4}
                        onChangeText={(val) => addDream({dreamSituation: val}) }
-                       placeholder="Enter your dream situation"
+                       placeholder="Capture any waking life situation that may be relevant to the dream (E.g. My project at work is under a lot of pressure)"
                        placeholderTextColor="#01203F66" />
                 </View>
                 {/* Dream situation */}             

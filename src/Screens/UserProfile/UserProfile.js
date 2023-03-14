@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { StyleSheet, View, Text, Image, ImageBackground, ScrollView, FlatList, ActivityIndicator, useColorScheme } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity, ScrollView, FlatList, ActivityIndicator, useColorScheme } from "react-native";
 import { useSelector, useDispath } from "react-redux";
 import axios from "axios";
 import Feather from "react-native-vector-icons/Feather";
@@ -124,13 +124,22 @@ const UserProfile = ({navigation}) => {
                                         <Entypo  style={[Style.userInfoIcon, themeTextStyle]}  name="mobile" size={18}  /> {data.item.mobileNbr} </Text>
                                 }
 
-                              </View>
+                              </View>                                   
 
                               <View >
                                 <Text  onPress={logOut} style={[Style.profileLogOutBtn, themeTextStyle]}>
                                 <AntDesign  style={[Style.userInfoIcon,  themeTextStyle]}  name="logout" size={16}  /> Logout
                                 </Text>
                               </View>
+
+                               {/* Donate Now */}
+                               <Text style={[Style.subHeading, themeTextStyle]}>We partner with Stripe to manage subscriptions. You will be redirected to their page</Text>
+                                <View >
+                                <TouchableOpacity onPress={() => Linking.openURL('https://billing.stripe.com/p/login/test_7sI15t7Uv5QyfzW6op')}  style={Style.donateBtn}>
+                                    <Text style={Style.donateBtnTxt}> Subscribe </Text>
+                                </TouchableOpacity>
+                                </View>
+                                {/* Donate Now */}
 
                             {/*   <View>
 
