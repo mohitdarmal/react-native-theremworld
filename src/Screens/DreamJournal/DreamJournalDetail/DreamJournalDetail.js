@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from "react";
-import {View, StyleSheet, Text, ScrollView, ImageBackground, TextInput, Switch, TouchableOpacity, ActivityIndicator, useColorScheme} from "react-native";
+import {View, StyleSheet, Text, ScrollView, TextInput, Switch, TouchableOpacity, ActivityIndicator, useColorScheme} from "react-native";
 import axios from "axios";
 import HeaderComp from "../../../Components/HeaderComp";
-import SearchBar from "../../../Components/SearchBar";
-import ImagePath from "../../../Constant/ImagePath";
 import CommonStyle from "../../ScreenCommonCss";
 import Style from "./Style";
 import NavigationStrings from "../../../Constant/NavigationStrings";
 import { useDispatch, useSelector } from "react-redux";
+import { showError } from "../../../Utils/helperFunction";
+import Validator from "../../../Utils/AddDreamValidation";
+ 
 
 
 const DreamJournalDetail = (props) => {
@@ -22,15 +23,9 @@ const DreamJournalDetail = (props) => {
     const isUserID = useSelector((state) => state.isSignIn.token);
     const [switchValue, setSwitchValue] = useState();
     const [isLoading, setIsLoading] = useState(false);
-/* 
-  useEffect(() =>{
-    if(DreamJournalDetail.isPublic == "1"){
-      setSwitchValue(true)
-    }
-    else{
-      setSwitchValue(false)
-    }
-  }) */
+
+    
+   
 
     const [addDreamData, setAddDreamData] = useState({
         idUser:isUserID ,
@@ -42,7 +37,20 @@ const DreamJournalDetail = (props) => {
         flag: 'U',
       });
 
-      console.log( DreamJournalDetail.isPublic, "show")
+       
+/* Validation part start */
+const {dreamTitle, dreamText} = addDreamData;
+const isValidate = () => {
+  const error = Validator({
+      dreamTitle, dreamText
+  })
+  if(error){
+      showError(error)
+      return false
+  }
+  return true;
+}
+/* Validation part end */
 
     useEffect(() => {
       if(addDreamData.isPublic == "1"){
@@ -69,6 +77,8 @@ const DreamJournalDetail = (props) => {
       };
 
       const updateDream = () => {
+        const checkValid = isValidate();
+        if(checkValid){
         setIsLoading(true)
         axios.post(`${NavigationStrings.BASE_URL}saveUserDream.php`,
         JSON.stringify(addDreamData)
@@ -77,6 +87,7 @@ const DreamJournalDetail = (props) => {
         setIsLoading(false)
         console.log(res, "Updated Data")
       })
+    }
      }
 
 
@@ -113,7 +124,7 @@ const DreamJournalDetail = (props) => {
 
 
                                  {/* Dream tile */}
-                                <Text style={[Style.label, themeTextStyle]}> Dream Title </Text>
+                                <Text style={[Style.label, themeTextStyle]}> Dream Title: </Text>
                                    <View style={Style.inputBox}>
                                     <TextInput
                                      style={Style.textArea}
@@ -126,7 +137,7 @@ const DreamJournalDetail = (props) => {
 
 
                                   {/* About your dream */}
-                                        <Text style={[Style.label, themeTextStyle]}> About your dream </Text>
+                                        <Text style={[Style.label, themeTextStyle]}> Describe the dream: </Text>
                                         <View >
                                             <TextInput
                                             style={Style.textArea}
@@ -139,7 +150,7 @@ const DreamJournalDetail = (props) => {
                                     {/* About your dream */}
 
                                      {/* Dream situation */}
-                                        <Text style={[Style.label, themeTextStyle]}> Dream Situation </Text>
+                                        <Text style={[Style.label, themeTextStyle]}> Describe any relevant context of the dream: </Text>
                                         <View>
                                             <TextInput
                                             style={Style.textArea}

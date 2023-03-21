@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from "react";
 import {Text, Modal, View, ImageBackground, ScrollView, TextInput, Switch, TouchableOpacity, ActivityIndicator, useColorScheme} from "react-native";
 import axios from "axios";
+import HTMLView from 'react-native-htmlview';
 import NavigationStrings from "../../Constant/NavigationStrings";
 import HeaderComp from "../../Components/HeaderComp";
 import Style from "./Style";
 import CommonStyle from "../ScreenCommonCss";
 import { useSelector } from "react-redux";
-
+import { showError } from "../../Utils/helperFunction";
+import Validator from "../../Utils/AddDreamValidation";
 
 
 
@@ -43,6 +45,20 @@ const themeContainerStyle =
     setAddDreamData(() => ({...addDreamData, ...val}))
   }
 
+/* Validation part start */
+    const {dreamTitle, dreamText} = addDreamData;
+    const isValidate = () => {
+      const error = Validator({
+          dreamTitle, dreamText
+      })
+      if(error){
+          showError(error)
+          return false
+      }
+      return true;
+    }
+/* Validation part end */
+
   const toggleSwitch = (value) => {
     setSwitchValue(value);
     if(value){
@@ -54,19 +70,10 @@ const themeContainerStyle =
   };
 
 
-  /* const saveDream = () => {
- axios({
-  method:'post',
-  url:'http://theremworld/src/api/saveUserDream.php',
-  data:{
-    addDreamData
-  }
- }).then((res) => {
-  console.log(res, "adddream")
- })
-} */
 
 const saveDream = () => {
+  const checkValid = isValidate();
+  if(checkValid){
   setIsLoading(true)
   axios.post(`${NavigationStrings.BASE_URL}saveUserDream.php`,
   JSON.stringify(addDreamData)
@@ -76,14 +83,19 @@ const saveDream = () => {
   // alert(res.data.message, "welcome");
   setAiModalSuccesVisible(true);
 })
- 
+}
 }
 
 const showPoupupVisible = () => {
+  const checkValid = isValidate();
+  if(checkValid){
   setSuccesModalVisible(true);
+  }
 }
 
 const saveAndVisibleDream = () => {
+  const checkValid = isValidate();
+  if(checkValid){
   setIsLoading(true)
   addDreamData.isPublic = "1";
   axios.post(`${NavigationStrings.BASE_URL}saveUserDream.php`,
@@ -97,9 +109,12 @@ const saveAndVisibleDream = () => {
   setAiModalSuccesVisible(true);
   // navigation.navigate(NavigationStrings.QOTBOX)
 })
+  }
 }
 
 const saveWithoutVisible = () => {
+  const checkValid = isValidate();
+  if(checkValid){
   setIsLoading(true)
   addDreamData.isPublic = "0";
   axios.post(`${NavigationStrings.BASE_URL}saveUserDream.php`,
@@ -117,6 +132,7 @@ else{
   setAiModalSuccesVisible(true);
   // navigation.navigate(NavigationStrings.QOTBOX)
 })
+  }
 }
 
 const ok = () => {
@@ -194,15 +210,16 @@ console.log(aiAnalyze, "aiAnala")
                       }}
                   >
                       <View style={[themeContainerStyle,{flex: 1, alignItems: "center", justifyContent:'center', paddingTop:45, backgroundColor:'#031750f5',}]}>
- 
-                
-                                  <Text style={Style.visiblePopupText}>
+                                    <HTMLView
+                                      style={Style.visiblePopupText}
+                                        value={aiAnalyze}                  
+                                      /> 
+                                {/*   <Text style={Style.visiblePopupText}>
                                      {aiAnalyze}                                  
-                                  </Text>
+                                  </Text> */}
                                   <TouchableOpacity onPress={ok}>
                                       <Text style={{color:'#000', fontSize:20, backgroundColor:'#fff', borderRadius:50, width:40, height:40, textAlign:'center', lineHeight:40}}>Ok</Text>
-                                  </TouchableOpacity>
-                                       
+                                  </TouchableOpacity>                                       
                               </View>
                   </Modal>
               {/* Visible toggle Modal */}
@@ -234,10 +251,11 @@ console.log(aiAnalyze, "aiAnala")
                 {/*  */}
 
               {/* Dream tile */}
+              <Text style={[Style.descTxt, themeTextStyle, {marginBottom:10}]}>Dream Title: </Text> 
                     <TextInput
                        style={[Style.inputFieldTxt]}
                        onChangeText={(val) => addDream({dreamTitle: val}) }
-                       placeholder="Title of the Dream"
+                       placeholder="Give a title to this dream"
                        placeholderTextColor="#01203F66"  />
                 {/* Dream tile */}
 

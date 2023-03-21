@@ -91,8 +91,7 @@ const Style = StyleSheet.create({
         color:'#466362'
     },
     switchBtnInActive:{
-        color:'#466362',
-        opacity:0.4
+        color:'#7D7D7D',
     },
     switchContainer:{
         justifyContent:'flex-start',

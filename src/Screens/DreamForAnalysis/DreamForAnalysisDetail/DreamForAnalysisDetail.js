@@ -22,6 +22,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import Style from "./Style";
 import { any } from "is_js";
+import { showError } from "../../../Utils/helperFunction";
+import Validator from "../../../Utils/DreamForAnalysisDetailValidation";
 
 const DreamForAnalysisDetail = (props) => {
   const colorScheme = useColorScheme();
@@ -43,6 +45,21 @@ const DreamForAnalysisDetail = (props) => {
     analysisText: "",
     dreamSymbols: [],
   });
+
+
+  /* Validation part start */
+  const {analysisText} = dreamUpdateAnalysis;
+  const isValidate = () => {
+    const error = Validator({
+      analysisText
+    })
+    if(error){
+        showError(error)
+        return false
+    }
+    return true;
+  }
+/* Validation part end */
 
   const [getSymbolList, setGetListSymbol] = useState([]);
   const [search, setSearch] = useState("");
@@ -76,7 +93,8 @@ const DreamForAnalysisDetail = (props) => {
   };
 
   const updateDreamAnalysis = () => {
-    console.log(dreamUpdateAnalysis, "Save krne se pjele")
+    const checkValid = isValidate();
+    if(checkValid){
     setIsLoading(true);
     axios
       .post(
@@ -89,6 +107,7 @@ const DreamForAnalysisDetail = (props) => {
           props.navigation.navigate(NavigationStrings.DREAM_FOR_ANALYSIS);
         }
       });
+    }
   };
 
   const getSymbol = () => {
@@ -317,7 +336,7 @@ console.log(saveSelectedSymbol, "asdfsf")
             {DreamForAnalysisDetailData.dreamText}
           </Text>
 
-          <Text style={[Style.dreamTxt, themeTextStyle]}>Dream Situation:</Text>
+          <Text style={[Style.dreamTxt, themeTextStyle]}>Situation:</Text>
           <Text style={[Style.dreamSituation, themeTextStyle]}>
             {DreamForAnalysisDetailData.dreamSituation}{" "}
           </Text>
@@ -336,6 +355,7 @@ console.log(saveSelectedSymbol, "asdfsf")
               onChangeText={(val) => userAnalysis({ analysisText: val })}
               placeholder="Enter meaningful analysis as it will be rated by the user"
             />
+            <Text style={{color:'#fff', marginBottom:25}}>Please enter meaningful analysis of twenty words or more</Text>
           </View>
           {/* Dream tile */}
 

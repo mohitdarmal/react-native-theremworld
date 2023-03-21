@@ -42,10 +42,10 @@ const Welcome = ({navigation}) => {
           if(data.idUser === isUserID){
             return true
           }
-          else{
+          /* else{
             AsyncStorage.removeItem('userId');
             Updates.reloadAsync()
-          }
+          } */
          })
            
          

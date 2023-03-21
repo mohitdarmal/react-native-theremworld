@@ -15,6 +15,7 @@ import NavigationStrings from "../../Constant/NavigationStrings";
 import { useIsFocused } from "@react-navigation/native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Updates from 'expo-updates';
+import * as Linking from 'expo-linking';
 
 const UserProfile = ({navigation}) => {
 

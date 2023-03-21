@@ -56,14 +56,17 @@ const Style = StyleSheet.create({
         marginBottom:20
     },
     txtAreaTxt:{
+        paddingTop:10,
         fontSize:18,
         color:'#01203fa1',
     },
     visiblePopupText:{
         fontSize:20,
-        color:'#fff',
-        paddingHorizontal:30,
-        textAlign:'center',
+        color:'#ffffff',
+        backgroundColor:'#fff',
+        padding:30,
+        margin:30,
+        borderRadius:10,
         lineHeight:28,
         marginBottom:40
     },

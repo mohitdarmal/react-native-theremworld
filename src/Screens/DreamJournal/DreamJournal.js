@@ -149,16 +149,16 @@ const searchFilterFunction = (text) => {
                                Are you sure? 
                              </Text>
                              <Text style={[Style.visiblePopupText, {marginBottom:30}]}>
-                             You want to delete this dream.
+                              you want to delete this dream? This action cannot be undone.
                              </Text>
 
                                   {/* Save Symol */}
                                   <View style={{flexDirection:'row'}}>
                                     <TouchableOpacity onPress={() => setSuccesModalVisible(false)}>
-                                      <Text style={[Style.cancelBtn, Style.popupCancelBtn]}> Don't Delete </Text>                                     
+                                      <Text style={[Style.cancelBtn, Style.popupCancelBtn]}> Cancel</Text>                                     
                                     </TouchableOpacity>
                                         <TouchableOpacity onPress={() => dreamDelete(deleteDream)} >
-                                          <Text style={[Style.save, Style.popupSaveBtn]}> Yes Delete</Text>
+                                          <Text style={[Style.save, Style.popupSaveBtn]}> Delete this dream</Text>
                                         </TouchableOpacity>
                                     </View>
                                     {/* Save Symol  */}

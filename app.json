@@ -21,7 +21,14 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.theremworld.theremworld"
+      "bundleIdentifier": "com.theremworld.theremworld",
+      "buildNumber": "7",
+      "infoPlist": {
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Allows App to use location services in the foreground and background.",
+        "NSFaceIDUsageDescription": "Allows App to use Face ID for a simpler sign in.",
+        "NSPhotoLibraryUsageDescription":"Photo Library Access",
+        "NSSpeechRecognitionUsageDescription": "Speech Recognition Description"
+      }
     },
     "android": {
       "useNextNotificationsApi": true,      

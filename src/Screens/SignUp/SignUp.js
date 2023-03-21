@@ -79,7 +79,7 @@ const SignUp = ({navigation}) => {
                             setIsLoading(false)
                         }
                         else{
-                            alert(res.data.message, "Error")
+                            alert(res.data.message, "Error");
                             setIsLoading(false);
                         }
                         
@@ -151,6 +151,7 @@ const [userSigninStatus, isUserSigninStatus] = useState(false)
                 }
                 else{
                     alert(res.data.message)
+                    setIsLoading(false)
                 }   
             console.log("signup",res.data)
         }).catch((err) => {
